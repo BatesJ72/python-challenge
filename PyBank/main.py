@@ -3,13 +3,13 @@ import csv
 
 path = os.path.join("Resources", "budget_data.csv")
 
+# Get the total number of months in data set, excluding the header
+#redo this as a dict_reader, then skip the header line, then count the length of the list
 with open(path, "r") as file: 
-
     # prints data as a list
     budget_data = file.readlines()
     data = [row.strip().split(",") for row in budget_data]
 
-    # Get the total number of months in data set, excluding the header
     months = -1
     for n in data:
         months += 1
@@ -31,7 +31,7 @@ with open(path, "r") as file:
         
 
 
-        
+# redo this - first create a list that contains all the differences from month to month, and then take the average of that        
 with open(path, "r") as file: 
     # eliminate the header
     header = file.readline()
@@ -57,7 +57,7 @@ with open(path, "r") as file:
         
         
         
-            
+# redo this - it needs to be the greatest increase from month to month, not the greatest month       
 with open(path, "r") as file: 
     # eliminate the header
     header = file.readline()
@@ -76,7 +76,7 @@ with open(path, "r") as file:
         
         
         
-        
+# redo this - it needs to be the greatest decrease from month to month, not the lowest month  
 with open(path, "r") as file: 
     # eliminate the header
     header = file.readline()
