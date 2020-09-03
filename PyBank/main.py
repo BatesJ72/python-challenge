@@ -123,3 +123,15 @@ print(f"Total: ${total}")
 print(f"Average Change: ${avg_change}")
 print(f"Greatest Increase in Profits: {month_4a} (${greatest_incr})")
 print(f"Greatest Decrease in Profits: {month_5a} (${greatest_decr})")
+
+
+# Write file
+SUMMARY_FILE = "summary_file.txt"
+
+with open (SUMMARY_FILE, "w+") as file: 
+    file.write(f"Total Months: {months}\n")
+    file.write(f"Total: ${total}\n")
+    file.write(f"Average Change: ${avg_change}\n")
+    file.write(f"Greatest Increase in Profits: {month_4a} (${greatest_incr})\n")
+    file.write(f"Greatest Decrease in Profits: {month_5a} (${greatest_decr})\n")
+    
