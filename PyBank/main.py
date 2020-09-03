@@ -131,8 +131,8 @@ print(f"Greatest Decrease in Profits: {month_5a} (${greatest_decr})")
 SUMMARY_FILE = os.path.join("Analysis", "summary_file.txt")
 
 with open (SUMMARY_FILE, "w+") as file: 
-    file.write("Financial Analysis")
-    file.write("-----------------------------------")
+    file.write("Financial Analysis\n")
+    file.write("-----------------------------------\n")
     file.write(f"Total Months: {months}\n")
     file.write(f"Total: ${total}\n")
     file.write(f"Average Change: ${avg_change}\n")
