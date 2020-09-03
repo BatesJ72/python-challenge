@@ -1,113 +1,58 @@
 import os
-import csv
 
 path = os.path.join("Resources", "budget_data.csv")
 
-# Get the total number of months in data set, excluding the header
-#redo this as a dict_reader, then skip the header line, then count the length of the list
+# 1. Get the total number of months in data set, excluding the header
 with open(path, "r") as file: 
-    # prints data as a list
-    budget_data = file.readlines()
-    data = [row.strip().split(",") for row in budget_data]
+    header_1 = file.readline()
+    budget_data_1 = file.readlines()
+    data_1 = [row.strip().split(",") for row in budget_data_1]
+    months = len(data_1)
+# print(months)
 
-    months = -1
-    for n in data:
-        months += 1
-    print(f"Total Months: {months}")
 
-    
-    
+# 2. Net total Profit/Losses
 with open(path, "r") as file: 
-    # eliminate the header
-    header = file.readline()
+    header_2 = file.readline()
+    budget_data_2 = file.readlines()
+    data_2 = [row.strip().split(",") for row in budget_data_2]
     
-    # print the net total of "Profits/Losses"
-    budget_data = file.readlines()
-    data = [row.strip().split(",") for row in budget_data]
     total = 0
-    for item in data: 
+    for item in data_2:
         total += int(float(item[1]))
-    print(f"Total: ${total}")
-        
-
-
-# redo this - first create a list that contains all the differences from month to month, and then take the average of that        
-with open(path, "r") as file: 
-    # eliminate the header
-    header = file.readline()
-    
-    # print the avg of changes of "Profits/Losses"
-    
-    budget_data = file.readlines()
-    data = [row.strip().split(",") for row in budget_data]
-    
-    # get the sum
-    total = 0
-    for item in data: 
-        total += int(float(item[1]))
+# print(total)
    
-    # get the number of records
-    records = 0
-    for item in range(len(data)): 
-        records += 1
     
-    # Average calc
-    avg = round(total/records,2)
-    print(f"Average Change: ${avg}")
-        
-        
-        
-# redo this - it needs to be the greatest increase from month to month, not the greatest month       
+# 3. Average change    
 with open(path, "r") as file: 
-    # eliminate the header
-    header = file.readline()
+    header_3 = file.readline()
+    budget_data_3 = file.readlines()
+    data_3 = [row.strip().split(",") for row in budget_data_3]
     
-    # get max "Profits/Losses"
-    budget_data = file.readlines()
-    data = [row.strip().split(",") for row in budget_data]
-    total = 0
-    month = 0
-    for item in data: 
-        if int(float(item[1])) > total:
-            total = int(float(item[1]))
-            month = item[0]
-    print(f"Greatest Increase in Profits: {month} (${total})")
-        
-        
-        
-        
-# redo this - it needs to be the greatest decrease from month to month, not the lowest month  
-with open(path, "r") as file: 
-    # eliminate the header
-    header = file.readline()
+    data_3a = []
+    for e in data_3:
+        data_3a.append(int(e[1]))
+#     print(data_3a)
     
-    # get min "Profits/Losses"
-    budget_data = file.readlines()
-    data = [row.strip().split(",") for row in budget_data]
-    total = 0
-    month = ""
-    for item in data: 
-        if int(float(item[1])) < total:
-            total = int(float(item[1]))
-            month = item[0]
-    print(f"Greatest Decrease in Profits: {month} (${total})")
-        
-#     print(type(data[:1]))
-#     PL = [data[:1] for e in data]
-#     print(PL)
+    changes = []
+    for i in range(1, len(data_3a)):
+        last_month = data_3a[i-1]
+        current_month = data_3a[i]
+#     print(current_month)
+#     print(last_month)
     
+        change = current_month - last_month
+        changes.append(change)
     
+# print(type(change))
+    avg_change = round(sum(changes)/len(changes),2)
+#     print(avg_change)
 
-# with open(path, "r") as file: 
-#     dict_reader = csv.DictReader(file)
-    
-#       # prints data as a dictionary 1
-# #     for row in dict_reader:
-# #         print(dict(row))
 
-#     # prints data as a dictionary 2
-#     dict_data = [dict(ordered_dict) for ordered_dict in dict_reader]
-# #     print(dict_data)
-#     print(max("Profit/Losses"))
-    
-# #     print([e["Date"] for e in dict_data] in max("Profit/Losses"))
+# 4. Greatest increase in profits
+
+
+# Summary statements
+print(f"Total Months: {months}")
+print(f"Total: ${total}")
+print(f"Average Change: ${avg_change}")
