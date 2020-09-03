@@ -118,6 +118,8 @@ with open(path, "r") as file:
 
 
 # Summary statements
+print("Financial Analysis")
+print("-----------------------------------")
 print(f"Total Months: {months}")
 print(f"Total: ${total}")
 print(f"Average Change: ${avg_change}")
@@ -129,6 +131,8 @@ print(f"Greatest Decrease in Profits: {month_5a} (${greatest_decr})")
 SUMMARY_FILE = os.path.join("Analysis", "summary_file.txt")
 
 with open (SUMMARY_FILE, "w+") as file: 
+    file.write("Financial Analysis")
+    file.write("-----------------------------------")
     file.write(f"Total Months: {months}\n")
     file.write(f"Total: ${total}\n")
     file.write(f"Average Change: ${avg_change}\n")
