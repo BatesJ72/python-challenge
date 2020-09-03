@@ -73,3 +73,20 @@ print(f"O'Tooley: {percentage_otooley}% ({votes_otooley})")
 print("--------------------------")
 print(f"Winner: {winner}")
 print("--------------------------")
+
+
+# Write file
+SUMMARY_FILE = os.path.join("Analysis", "summary_file.txt")
+
+with open(SUMMARY_FILE, "w+") as file: 
+    file.write("Election Results\n")
+    file.write("--------------------------\n")
+    file.write(f"Total Votes: {count_1}\n")
+    file.write("--------------------------\n")
+    file.write(f"Kahn: {percentage_khan}% ({votes_khan})\n")
+    file.write(f"Correy: {percentage_correy}% ({votes_correy})\n")
+    file.write(f"Li: {percentage_li}% ({votes_li})\n")
+    file.write(f"O'Tooley: {percentage_otooley}% ({votes_otooley})\n")
+    file.write("--------------------------\n")
+    file.write(f"Winner: {winner}\n")
+    file.write("--------------------------\n")
