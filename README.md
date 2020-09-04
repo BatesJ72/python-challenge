@@ -8,4 +8,4 @@ PyBank is a revenue analysis on profits and losses for a company. I summarized i
 
 ## PyPoll
 
-PyPoll calculates the votes cast in a small town. It determines the total number of votes case, the percentage of votes won by each candidate, and the overall winner. This code prints the results to the terminal, and it also creates a file with the summary data. 
+PyPoll calculates the votes cast in a small town. It determines the total number of votes cast, the percentage of votes won by each candidate, and the overall winner. This code prints the results to the terminal, and it also creates a file with the summary data. 
